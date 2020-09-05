@@ -1,0 +1,208 @@
+.mystyle{
+	height: 300px;
+	width: 300px;
+	color: white;
+	font-size: 25px;
+	border-radius: 10px;
+}
+.flip-container{
+	perspective: 1000px;
+	border-radius: 10px;
+	padding-bottom: 50px;
+}
+.flip-container:hover .flipper,
+.flip-container.hover .flipper{
+	transform: rotateY(180deg);
+}
+.flip-container,
+.front,
+.back{
+	height: 350px;
+	width: 300px;
+	
+}
+.flipper{
+	transition: 1s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+.front,
+.back{
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.front{
+    z-index: 3;
+    transform: rotateY(0deg);
+}
+.back{
+    transform: rotateY(180deg);
+}
+.edit{
+    float: right;
+    padding-right: 20px;
+}
+
+#address, #open_hours,#phone_number,#ratings{
+	font-size: 15px;
+}
+
+#hyperlink{
+	font-weight: bold;
+	color: white;
+	
+}
+
+#hyperlink:hover {
+    color: lightseagreen;
+}
+
+html, body {
+    background-color:#262020;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    
+}
+footer{
+  background: #9F9FE4;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* NAV BAR */
+.navbar{
+  float: right;
+  background: #9F9FE4;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+  text-align: center;
+}
+
+.navbar,
+.nav-link{
+    color: white;
+}
+a:hover:not(.active) {
+    color: black;
+    
+}
+#contactlink:hover {
+    color: yellow;
+}
+.dropdown{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#nav2:hover {
+    color: white;
+    border-bottom: 3px solid yellow;
+}
+
+/*SEARCH BAR*/
+.search
+{
+    border: 2px solid black;
+    overflow: auto;
+    border-radius: 5px;
+    margin-top: 8%;
+}
+   
+.search input[type="text"]
+{
+    border: 0px;
+    width: 100%;
+    padding: 10px 10px;
+}
+   
+.search input[type="text"]:focus
+{
+    outline: 0;
+}
+
+#welcome{
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+#summary{
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+#asterik{
+	font-size: 13px;
+}
+
+#button{
+	width: auto;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 12px;
+	cursor: pointer;
+}
+
+#review{
+	text-align: center;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+#bold{
+	font-weight: bold;
+	font-size: 19px;
+}
+
+#revdata{
+	font-size: 17px;
+}
+
+/* GRID FOR RESTAURANT IMAGES */
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+.xop-section {
+	max-width: 80%;
+	margin: 0 auto;
+	padding: 6% 2%;
+}
+
+#xop-grid:after {
+	clear: both;
+}
+
+#xop-grid:after, .xop-box:before {
+	content: '';
+	display: table;
+}
+
+#xop-grid li {
+	width: 328px;
+	height: 328px;
+	display: inline-block;
+	margin: 20px;
+}
+
+.xop-box {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	cursor: pointer;
+    border-radius: 10px;
+    -webkit-transition: 0.3s ease-in-out, 
+    -webkit-transform 0.3s ease-in-out;
+	-moz-transition:  0.3s ease-in-out, 
+    -moz-transform 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out, 
+    transform 0.3s ease-in-out, ;
+}
+
+.xop-box:hover {
+	transform: scale(1.05); 
+}

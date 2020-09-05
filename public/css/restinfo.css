@@ -1,0 +1,80 @@
+.xop-img-chatterboxthumb {
+	background: linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.10)), /* bottom, image */
+	url(../images/restaurant/chatterboxthumb.jpg);
+}
+.xop-img-chatterbox1 {
+	background: linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.10)), /* bottom, image */
+	url(../images/restaurant/chatterbox1.jpg);
+}
+.xop-img-chatterboxmenu {
+	background: linear-gradient( rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.10)), /* bottom, image */
+	url(../images/restaurant/chatterboxmenu.jpg);
+}
+
+input[type=text1], input[type=date], input[type=time],select {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    box-sizing: border-box;
+  }
+  
+  #restsubmit {
+    width: auto;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+  
+#restsubmit:hover {
+    background-color: #45a049;
+}
+
+.userreviewinfo{
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  float: left;
+  margin-right: 10%;
+}
+
+.textarea{
+  margin-right: 10%;
+  margin-top: 2%;
+  text-align:left;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 12px;
+  font-size: 18px;
+}
+
+#reviewimage{
+  float: left;
+}
+
+#button{
+  width: auto;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+input[type=button]{
+    width: auto;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+

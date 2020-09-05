@@ -1,0 +1,104 @@
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box}
+
+#gender{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* BUTTONS FOR USER INPUT/CHANGES AND UPDATE */
+input[type=text],input[type=submit], input[type=password] {
+  width: 30%;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 5px 0 15px 0;
+  display: inline-block;
+  border: none;
+  background: #12E3DD;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+}
+
+input[type=text]:hover {
+  background-color: #ddd;
+}
+
+input[type=text]:focus{
+  background-color: #ddd;
+  outline: none;
+}
+
+/* SIGN OUT BUTTON */
+button[type=button] {
+  width: 30%;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 5px 0 20px 0;
+  display: inline-block;
+  border: none;
+  background: #666666;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+button:hover {
+  opacity:3;
+}
+
+/*DELETE ACCOUNT*/
+#delacc{
+  width: 30%;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 5px 0 20px 0;
+  display: inline-block;
+  border: none;
+  background: #666666;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+#delacc:hover{
+  opacity:3;
+}
+
+#updatemodal{
+  width: 30%;
+  padding: 15px;
+  border-radius: 12px;
+  margin: 5px 0 15px 0;
+  display: inline-block;
+  border: none;
+  background: #12E3DD;
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  color: black;
+}
+
+.modal-content{
+  color: black;
+}
+
+input[type=button]{
+  font-size: 15px;
+  font-weight: bold;
+  width: 20%;
+  margin: auto;
+  color: white;
+  background-color: #666;
+}
+
+.modal-content animate{
+  background-color: #12E3DD;
+  color: black;
+  margin: auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 40%;
+}
