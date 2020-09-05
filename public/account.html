@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Account</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/mystyle.css">
+        <link rel="stylesheet" href="css/account.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <script>
+                var response="";
+                function updateusername(){
+                    var credentials=new Object();
+                    credentials.username=document.getElementById("username").value;
+                    var request=new XMLHttpRequest();
+                    request.open("PUT","/updateUsername",true);
+                    request.setRequestHeader("Content-Type", "application/json");
+                    request.onload=function(){
+                    response=JSON.parse(request.responseText);
+                    window.location="account.html?";
+                    alert("Username has been updated to "+credentials.username+"!");
+                    //document.getElementById("login").style.display="none";
+                };
+                request.send(JSON.stringify(credentials));
+                }
+          
+                function updatepassword(){
+                    var credentials=new Object();
+                    credentials.password=document.getElementById("password").value;
+                    var request=new XMLHttpRequest();
+                    request.open("PUT","/updatePassword",true);
+                    request.setRequestHeader("Content-Type", "application/json");
+                    request.onload=function(){
+                    response=JSON.parse(request.responseText);
+                    window.location="account.html?";
+                    alert("Password has been updated!");
+                    //document.getElementById("login").style.display="none";
+                };
+                request.send(JSON.stringify(credentials));
+                }
+
+                function updatephonenumber(){
+                    var credentials=new Object();
+                    credentials.phonenumber=document.getElementById("phonenumber").value;
+                    var request=new XMLHttpRequest();
+                    request.open("PUT","/updatePhoneNumber",true);
+                    request.setRequestHeader("Content-Type", "application/json");
+                    request.onload=function(){
+                    response=JSON.parse(request.responseText);
+                    window.location="account.html?";
+                    alert("Phone number has been updated to "+credentials.phonenumber+"!");
+                    //document.getElementById("login").style.display="none";
+                };
+                request.send(JSON.stringify(credentials));
+                }
+
+                function updateemail(){
+                    var credentials=new Object();
+                    credentials.email=document.getElementById("email").value;
+                    var request=new XMLHttpRequest();
+                    request.open("PUT","/updateEmail",true);
+                    request.setRequestHeader("Content-Type", "application/json");
+                    request.onload=function(){
+                    response=JSON.parse(request.responseText);
+                    window.location="account.html?";
+                    alert("Email has been updated to "+credentials.email+"!");
+                    //document.getElementById("login").style.display="none";
+                };
+                request.send(JSON.stringify(credentials));
+                }
+
+                function updateaddress(){
+                    var credentials=new Object();
+                    credentials.address=document.getElementById("address").value;
+                    var request=new XMLHttpRequest();
+                    request.open("PUT","/updateAddress",true);
+                    request.setRequestHeader("Content-Type", "application/json");
+                    request.onload=function(){
+                    response=JSON.parse(request.responseText);
+                    window.location="account.html?";
+                    alert("Address has been updated to "+credentials.address+"!");
+                    //document.getElementById("login").style.display="none";
+                };
+                request.send(JSON.stringify(credentials));
+                }
+                </script>
+
+        <style>
+            body{
+                background-color:#262020;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-md" style="width: 100%">
+            <a class="navbar-brand" href="#" >
+                <img src="images/logopink.png" width="280" height="70" class="d-inline-block align-top" alt="">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse " id="navSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item active" id="Menu">
+                        <a class="nav-link" href="index.html" onclick="listallRestaurants()" ><b>Home</b></a>
+                    </li>
+            
+                    <li class="nav-item">
+                            <a class="nav-link" href="contact.html"><b>Contact</b></a>
+                    </li>
+            
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><b>Account</b></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="login.html"><b>Login</b></a>
+                                <a class="dropdown-item" href="signUp.html"><b>Sign Up</b></a>
+                            </div>
+                        </li>
+                </ul>
+            
+                <a class="navbar-brand" href="account.html" >
+                    <img src="images/noprofilepic.png" width="70" height="70" class="d-inline-block align-top" alt="">
+                </a>
+            </div>
+        </nav>
+
+        <!--THINGS-->
+        <div class="container"><center>
+            <br>
+            <h2><b>My Account</b></h2>
+
+            <img id="reviewPic" src="images/noprofilepic.png" alt="Sample image" width="180" height="180" class="d-inline-block align-top"/>
+                <br>
+                <br>
+                <input type='file' onchange="readURL(this);" />
+                <br>
+                <br>
+            
+            <!-- Update username modal -->
+            <button onclick="document.getElementById('id01').style.display='block'" id="updatemodal" stye>Update Username</button>
+            <div id="id01" class="modal">
+                    <!-- Modal Content -->
+                    <form class="modal-content animate" action="#">
+                        <div class="container">
+                            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <label for="username"><b>New Username:</b></label>
+                            <input type="text" placeholder="New username" id="username" name="username" required>
+                            <input type="button" onclick="updateusername()" value="Update"></form>
+                        </div>
+                </div>
+            <br>
+
+            <!--Update password modal-->
+            <button onclick="document.getElementById('id02').style.display='block'" id="updatemodal" stye>Update Password</button>
+            <div id="id02" class="modal">
+                    <!-- Modal Content -->
+                    <form class="modal-content animate" action="#">
+                        <div class="container">
+                            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <label for="password"><b>New Password:</b></label>
+                            <input type="password" placeholder="••••••••" id="password" name="password" required>
+                            <input type="button" onclick="updatepassword()" value="Update"></form>
+                        </div>
+                </div>
+            <br>
+            <!--Update phone number modal-->
+            <button onclick="document.getElementById('id03').style.display='block'" id="updatemodal" stye>Update Phone Number</button>
+                <div id="id03" class="modal">
+                    <!-- Modal Content -->
+                    <form class="modal-content animate" action="#">
+                        <div class="container">
+                            <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <label for="number"><b>New Mobile Number: </b></label>
+                            <input type="text" id="phonenumber" placeholder="91234567" name="phonenumber" pattern="[0-9]{8}" required>
+                            <input type="button" onclick="updatephonenumber()" value="Update"></form>
+                    </div>
+                </div>
+            <br>
+            <!--Update email modal-->
+            <button onclick="document.getElementById('id04').style.display='block'" id="updatemodal" stye>Update Email</button>
+                <div id="id04" class="modal">
+                    <!-- Modal Content -->
+                    <form class="modal-content animate" action="#">
+                        <div class="container">
+                            <span onclick="document.getElementById('id04').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <label for="email"><b>New Email:</b></label>
+                            <input type="text" placeholder="plsletmepass@gmail.com" id="email" name="email" required>
+                            <input type="button" onclick="updateemail()" value="Update"></form>
+                        </div>
+                </div>
+            <br>
+            <!--Update address modal-->
+            <button onclick="document.getElementById('id05').style.display='block'" id="updatemodal" stye>Update Address</button>
+                <div id="id05" class="modal">
+                    <!-- Modal Content -->
+                    <form class="modal-content animate" action="#">
+                        <div class="container">
+                            <span onclick="document.getElementById('id05').style.display='none'" class="close" title="Close Modal">&times;</span>
+                            <label for="password"><b>New Address</b></label>
+                            <input type="text" placeholder="17 Tampines Street" id="address" name="address" required>
+                            <input type="button" onclick="updateaddress()" value="Update"></form>
+                    </div>
+                </div>
+            <br>
+            
+            <button type="button" onclick="location.href='login.html'">Sign Out</button>
+            <br>
+            <a href='login.html'><input type="submit" id="delacc" onclick="alert('Delete Account?')" value="Delete Account"></a>
+        </div></center>
+
+        <center><footer><b><i>Copyright &copy; Food Wars</i></b></footer></center>
+    </body>
+
+    <script src="js/w3.js"></script>
+    <script>
+        //to bring in other HTML on the fly into this page
+        w3.includeHTML(); 
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#reviewPic')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+</html>

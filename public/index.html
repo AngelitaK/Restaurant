@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Food Wars</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/mystyle.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <script src="js/app.js"></script>
+        <script src="js/restaurant.js"></script>
+        <script src="js/comments.js"></script>
+        <script>
+                function welcome() {
+                    // The username from login.html has been added as query string so we need to
+                    // get the value of username from the query string. We can do this by using a 
+                    // built-in JavaScript function called URLSearchParams which makes use of 
+                    // the built-in 'window.location.search' property.
+                    var urlParams = new URLSearchParams(window.location.search);
+        
+                    // We then use the built-in getAll function and pass in the key of the query string
+                    // which is 'username' to get its value.
+                    var username = urlParams.getAll('username');
+        
+                    // Once we get the value of username from the query string,
+                    // we will set the Welcome message to the div with id='welcome'.
+                    document.getElementById('welcome').textContent = "Welcome " + username + "!";
+                }
+            </script>
+    </head>
+
+    <body onload="getrestaurantData(), welcome(), fetchComments()">
+        <!-- This is where the navigation HTML codes will be loaded -->
+        <div w3-include-html="navigation.html"></div>
+
+        <!-- This is the container that holds the initial message, heading, and restaurants BASICALLY ITS THE WHOLE BODY OF THE WEBSITE EVERYTHING PUT HERE-->
+        <div class="container">
+
+            <!-- SEARCH BAR -->
+            <br>
+            <div class="wrap">
+                <div class="search">
+                   <input type="text" id="search" class="searchTerm" onkeyup="myFunction()" placeholder="Search For Restaurant Name eg. Chatterbox" >
+                </div>
+             </div>
+
+             <!--Shows welcome (username) after login-->
+             <div id="welcome"></div>
+
+            <!-- The message will be shown when the page loads and will disappear after the restaurants are loaded-->
+            <div class="row" id="parent">
+                Retrieving restaurant from database... Please wait...<br><br>
+                If you are seeing this message for an extended time, it is probably
+                a JavaScript error. Troubleshoot your script by
+                using the browser console panel now or windows power shell. Please use Chrome to render this webpage. Turn on XAMPP for admin.
+            </div>
+            <br>
+            <!-- This is the heading showing how many restaurants are there -->
+            <p id="summary"></p>
+
+             <!-- Displays the filtered cuisine restaurant here -->
+             <center><div id="restaurantsTable" class="row"></div></center>
+
+             <!-- Displays ALL of the restaurant here -->
+             <center><div id="allRestaurants" class="row"></div></center>
+
+             <p id="review">Reviews</p>
+             <center><button type="button" id="button" onclick="location.href='review.html'">Leave A Review!</button></center>
+            
+             <!-- Displays reviews here -->
+             <center><div id="Allreview" class="row"></div></center>
+
+             <!-- This is where the review modal HTML codes will be loaded -->
+            <div w3-include-html="comments-modal.html"></div>
+
+        </div>
+   
+    <footer><center><b><i>Copyright &copy; Food Wars</i></b></center></footer>            
+    </body>
+    
+    <script src="js/w3.js"></script>
+    <script>
+        //to bring in other HTML on the fly into this page
+        w3.includeHTML();
+        //SEARCH FUNCTION
+        function myFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("search");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("xop-grid");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("a")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } 
+                else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+
+</html>

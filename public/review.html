@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Review</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/mystyle.css">
+        <link rel="stylesheet" href="css/restinfo.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+        <script>
+            var response="";
+            function leavereview(){
+                var credentials=new Object();
+                credentials.acc_rev_id=document.getElementById("acc_rev_id").value;
+                credentials.res_rev_id=document.getElementById("res_rev_id").value;
+                credentials.rev_stars=document.getElementById("rev_stars").value;
+                credentials.rev_title=document.getElementById("rev_title").value;
+                credentials.rev_comments=document.getElementById("rev_comments").value;
+          
+                var request=new XMLHttpRequest();
+                request.open("POST","/leavereview",true);
+                request.setRequestHeader("Content-Type", "application/json");
+          
+                request.onload=function(){
+                    alert("Thank you for reviewing " + credentials.res_rev_id +"!")
+                    window.location="index.html?";
+                };
+                request.send(JSON.stringify(credentials));
+            }
+        </script>
+
+        <style>
+            body{
+                background-color:#262020;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!--NAV BAR-->
+        <nav class="navbar navbar-expand-md" style="width: 100%">
+            <a class="navbar-brand" href="#" >
+                <img src="images/logopink.png" width="280" height="70" class="d-inline-block align-top" alt="">
+             </a>
+        
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse " id="navSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item active" id="Menu">
+                        <a class="nav-link" href="index.html" onclick="listallRestaurants()" ><b>Home</b></a>
+                    </li>
+            
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html"><b>Contact</b></a>
+                    </li>
+            
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><b>Account</b></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="login.html"><b>Login</b></a>
+                            <a class="dropdown-item" href="signUp.html"><b>Sign Up</b></a>
+                        </div>
+                    </li>
+                </ul>
+            
+                <a class="navbar-brand" href="account.html" >
+                    <img src="images/noprofilepic.png" width="70" height="70" class="d-inline-block align-top" alt="">
+                </a>
+            
+            </div>
+        </nav>
+
+        <br>
+        <div class="center"><center>
+            <h4><b>Leave A Review!</b></h4>
+            
+            <form id="leavereview">
+                    <p id="asterik"><span style="color: red;"> *</span> Denotes mandatory to fill up</p>
+                    <label>Username <span style="color: red;"> *</span>:</label>
+                    <br>
+                    <input id="acc_rev_id" type="text1" placeholder="Type in your username" name="acc_rev_id" required><p>
+
+                    <label>Restaurant <span style="color: red;"> *</span>:</label>
+                    <br>
+                    <select id="res_rev_id" required>
+                        <option value="ChatterBox">ChatterBox</option>
+                        <option value="CUT by Wolfgang Puck">CUT by Wolfgang Puck</option>
+                        <option value="Muthu’s Curry On Race Course Road">Muthu’s Curry On Race Course Road</option>
+                        <option value="Yassin Kampung">Yassin Kampung</option>
+                        <option value="SunnyChoice Cafe">SunnyChoice Cafe</option>
+                        <option value="Yes Natural">Yes Natural</option>
+                        <option value="Sushi Jiro">Sushi Jiro</option>
+                        <option value="D.Bespoke">D.Bespoke</option>
+                        <option value="McGettigan’s">McGettigan’s</option>
+                        <option value="Hjh Maimunah">Hjh Maimunah</option>
+                    </select>
+
+                    <br>
+
+                    <label for="rating">Rating <span style="color: red;"> *</span>: <br>(1 for worst, 5 for best)  </label>
+                    <br>
+                    <select id="rev_stars" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
+                    <br>
+                    
+                    <label for="rev_title">Review Title <span style="color: red;"> *</span> : </label>
+                    <br>
+                    <input type="text1" id="rev_title" name="rev_title" placeholder="Leave your title of your review" required>
+                    <br>
+                    <label for="rev_comments">Review <span style="color: red;"> *</span> : </label>
+                    <br>
+                    <input type="text1" id="rev_comments" name="rev_commentss"  placeholder="Leave your review here" required>
+                    <br>
+                    <input type="button" onclick="leavereview()" value="Submit Review">
+                </form>
+
+                <button type="button" id="button" onclick="location.href='index.html'">Go Back</button>
+
+        </center></div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer><center><b><i>Copyright &copy; Food Wars</i></b></center></footer>
+    </body>
+</html>
